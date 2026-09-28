@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">أَمْجَد // استوديو مونتاج اليوتيوب الاحترافي</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Cinzel:wght@600;800;900&family=Reem+Kufi:wght@600;700&family=Montserrat:wght@400;600;800&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+        darkMode: 'class',
+        theme: {
+        extend: {
+        colors: {
+        void: '#030305',
+        panelDark: '#090a0f',
+        amberGold: '#e6a13b',
+        youtubeRed: '#ff0000',
+        cyanNeon: '#00f0ff'
+        },
+        fontFamily: {
+        display: ['Cairo', 'sans-serif'],
+        sans: ['Tajawal', 'sans-serif'],
+        brandAr: ['"Reem Kufi"', 'sans-serif'],
+        brandEn: ['"Cinzel"', 'serif']
+        }
+        }
+        }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        body {
+            background-color: #030305;
+            color: #f3f4f6;
+            font-family: 'Tajawal', sans-serif;
+            overflow: hidden;
+            margin: 0;
+            height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        html.light body {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+
+        html.light .bg-void {
+            background-color: #f8fafc !important;
+        }
+
+        html.light .bg-panelDark {
+            background-color: #f1f5f9 !important;
+        }
+
+        html.light .glass-panel {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            color: #0f172a !important;
+        }
+
+        html.light header {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        html.light h1, html.light h2, html.light h3, html.light h4, html.light span, html.light p {
+            color: #0f172a;
+        }
+
+        html.light .text-gray-400, html.light .text-gray-300, html.light .text-gray-500 {
+            color: #475569 !important;
+        }
+
+        /* خلفية فيديو سينمائي متحرك وفخم جداً للأولى */
+        .hero-gradient-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: linear-gradient(120deg, #030305, #1a1206, #05070a, #030305);
+            background-size: 300% 300%;
+            animation: gradientShift 14s ease infinite;
+        }
+
+        html.light .hero-gradient-bg {
+            background: linear-gradient(120deg, #f8fafc, #fde9c8, #eef2f7, #f8fafc);
+            background-size: 300% 300%;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+            .hero-video-bg video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: brightness(0.45) contrast(1.1);
+                animation: kenburns 22s ease-in-out infinite alternate;
+            }
+
+        @keyframes kenburns {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.18) translate(-1.5%, -1.5%); }
+        }
+
+        .hero-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(3,3,5,0.7), rgba(3,3,5,0.85));
+            z-index: 1;
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hero-particle {
+            position: absolute;
+            bottom: -10px;
+            border-radius: 50%;
+            background: #e6a13b;
+            box-shadow: 0 0 8px 2px rgba(230, 161, 59, 0.55);
+            opacity: 0;
+            animation-name: floatUp;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.6); opacity: 0; }
+            12% { opacity: 0.85; }
+            88% { opacity: 0.35; }
+            100% { transform: translateY(-100vh) scale(1.1); opacity: 0; }
+        }
+
+        .pages-container {
+            display: flex;
+            width: 400vw;
+            height: 100vh;
+            will-change: transform;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .page-slide {
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-y: auto;
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+
+        .glass-panel {
+            background: rgba(12, 14, 20, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .amgad-logo {
+            background: linear-gradient(135deg, #ffffff 20%, #e6a13b 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(230, 161, 59, 0.35);
+            letter-spacing: 1px;
+        }
+
+        html.light .amgad-logo {
+            background: linear-gradient(135deg, #0f172a 20%, #d97706 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        html[lang="ar"] .amgad-logo {
+            font-family: 'Reem Kufi', sans-serif;
+            font-weight: 700;
+        }
+
+        html[lang="en"] .amgad-logo {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .nav-dots {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        html[dir="ltr"] .nav-dots {
+            left: auto;
+            right: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(150, 150, 150, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .dot.active {
+                background: #e6a13b;
+                height: 22px;
+                border-radius: 6px;
+                box-shadow: 0 0 12px #e6a13b;
+            }
+
+        .slider-page-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.6s ease-in-out;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(3,3,5,0.9) 40%, rgba(3,3,5,0.4) 100%);
+            z-index: 2;
+        }
+
+        html[dir="ltr"] .overlay {
+            background: linear-gradient(to left, rgba(3,3,5,0.9) 40%, rgba(3,3,5,0.4) 100%);
+        }
+
+        .slider-content {
+            position: relative;
+            z-index: 3;
+            margin-right: 6%;
+            max-width: 550px;
+            color: #fff;
+            padding: 20px;
+        }
+
+        html[dir="ltr"] .slider-content {
+            margin-right: 0;
+            margin-left: 6%;
+        }
+
+        .gallery-row {
+            position: absolute;
+            bottom: 24px;
+            left: 40px;
+            right: 40px;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        html[dir="ltr"] .gallery-row {
+            left: 40px;
+            right: 40px;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x proximity;
+            padding-bottom: 5px;
+            cursor: grab;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cards-container.dragging {
+            cursor: grabbing;
+            scroll-behavior: auto;
+        }
+
+        .gallery-nav-btn {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(12, 14, 20, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(230, 161, 59, 0.35);
+            color: #e6a13b;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .gallery-nav-btn:hover {
+            background: #e6a13b;
+            color: #030305;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-nav-btn {
+                display: none;
+            }
+        }
+
+        .card-item {
+            width: 140px;
+            height: 185px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 2px solid transparent;
+            scroll-snap-align: start;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+            .card-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .card-item .card-info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 8px;
+                background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+                color: #fff;
+            }
+
+                .card-item .card-info span {
+                    display: block;
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                }
+
+            .card-item:hover, .card-item.active {
+                transform: translateY(-8px);
+                border-color: #e6a13b;
+                box-shadow: 0 10px 20px rgba(230,161,59,0.3);
+            }
+
+        @media (max-width: 768px) {
+            .slider-content {
+                margin: 0 auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .gallery-row {
+                left: 16px;
+                right: 16px;
+                bottom: 18px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-void text-gray-100">
+
+    <!-- الشريط العلوي المتجاوب -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-void/80 backdrop-blur-md py-3 border-b border-white/10 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
+            <a href="#" onclick="goToPage(0); return false;" class="flex items-center gap-2 sm:gap-3 group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden border border-amberGold/30 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="صورة أمجد" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span class="font-black text-lg sm:text-xl amgad-logo block leading-none" id="brandName">أَمْجَد</span>
+                    <span class="text-[8px] sm:text-[9px] font-mono tracking-widest text-gray-400" data-i18n="headerSubtitle">YOUTUBE EDITOR</span>
+                </div>
+            </a>
+
+            <!-- الروابط للشاشات الكبيرة -->
+            <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-[11px] font-bold tracking-widest uppercase">
+                <button onclick="goToPage(0)" class="nav-link text-amberGold transition-colors" data-i18n="navHome">الرئيسية</button>
+                <button onclick="goToPage(1)" class="nav-link text-gray-400 hover:text-amberGold transition-colors" data-i18n="navFeatured">العمل المميز</button>
+                <button onclick="goToPage(2)" class="nav-link text-gray-400 hover:text-amberGold transition-colors" data-i18n="navGallery">المعرض</button>
+                <button onclick="goToPage(3)" class="nav-link text-gray-400 hover:text-amberGold transition-colors" data-i18n="navContact">تواصل معي</button>
+            </nav>
+
+            <!-- الأزرار العلوية -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="toggleTheme()" class="glass-panel hover:border-amberGold/50 text-amberGold w-9 h-9 sm:w-auto sm:px-3 sm:py-2 rounded-full text-xs font-bold transition-all flex items-center justify-center gap-1.5 border border-white/10" id="themeBtn" title="تبديل الوضع">
+                    <i id="themeIcon" class="fa-solid fa-sun text-sm"></i>
+                </button>
+
+                <button onclick="toggleLanguage()" class="glass-panel hover:border-amberGold/50 text-amberGold px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 border border-white/10" id="langBtn" title="Switch Language">
+                    <i class="fa-solid fa-globe"></i> <span id="langText">EN</span>
+                </button>
+
+                <a href="https://wa.me/201228032666" target="_blank" class="bg-amberGold hover:bg-amber-400 text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-bold transition-all shadow-lg shadow-amberGold/10 flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> <span dir="ltr" class="hidden sm:inline">01228032666</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- نقاط التنقل الجانبية -->
+    <div class="nav-dots hidden md:flex">
+        <div class="dot active" onclick="goToPage(0)"></div>
+        <div class="dot" onclick="goToPage(1)"></div>
+        <div class="dot" onclick="goToPage(2)"></div>
+        <div class="dot" onclick="goToPage(3)"></div>
+    </div>
+
+    <!-- حاوية الصفحات -->
+    <div id="pagesContainer" class="pages-container">
+
+        <!-- الصفحة 1: الرئيسية بخلفية فيديو سينمائي متحرك -->
+        <section class="page-slide bg-void">
+            <div class="hero-gradient-bg"></div>
+            <div class="hero-video-bg">
+                <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1600&q=60" onerror="this.style.display='none'">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-and-lights-41584-large.mp4" type="video/mp4">
+                </video>
+                <div class="hero-video-overlay"></div>
+            </div>
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6">
+                <span class="px-4 py-1.5 rounded-full glass-panel text-amberGold text-xs font-mono uppercase border border-amberGold/30 shadow-lg">
+                    <i class="fa-solid fa-wand-magic-sparkles ml-1"></i> <span data-i18n="heroBadge">مونتير ومخرج محتوى يوتيوب</span>
+                </span>
+                <h1 class="font-black text-5xl sm:text-7xl md:text-8xl tracking-tight leading-tight py-2">
+                    <span class="amgad-logo text-6xl sm:text-8xl md:text-9xl block" id="heroBrandName">أَمْجَد</span>
+                </h1>
+                <p class="text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto font-light" data-i18n="heroDesc">
+                    أحول الفيديوهات الخام إلى إبداعات بصرية تخطف انتباه المشاهد وترفع معدل الاحتفاظ بالجمهور على قناتك.
+                </p>
+                <div class="pt-4 flex justify-center gap-4">
+                    <button onclick="goToPage(2)" class="bg-amberGold hover:bg-amber-400 text-black px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all shadow-2xl shadow-amberGold/30">
+                        <span data-i18n="heroBtn">استعرض أعمالي</span> <i class="fa-solid fa-arrow-left mr-2" id="heroBtnArrow"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- الصفحة 2: العمل الأبرز -->
+        <section class="page-slide bg-panelDark">
+            <div class="max-w-4xl mx-auto px-6 w-full">
+                <div class="mb-5 text-center sm:text-right">
+                    <span class="text-xs font-mono text-amberGold uppercase tracking-widest block mb-1" data-i18n="featuredSub">العمل الأكثر إعجاباً بواسطة الزوار ⭐</span>
+                    <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-black" data-i18n="featuredTitle">تحدي الـ 24 ساعة في الصحراء الكبرى</h2>
+                </div>
+                <div class="glass-panel p-2.5 sm:p-3 rounded-3xl border border-amberGold/30 shadow-2xl relative overflow-hidden">
+                    <div class="aspect-video relative rounded-2xl overflow-hidden bg-black">
+                        <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls class="w-full h-full object-cover"></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- الصفحة 3: المعرض -->
+        <section class="page-slide bg-void">
+            <div class="slider-page-container">
+                <div class="bg-image" id="bgImage"></div>
+                <div class="overlay"></div>
+
+                <div class="slider-content">
+                    <p class="subtitle text-amberGold font-mono text-xs mb-2 tracking-widest uppercase" id="subTitle">Sahara Desert - Morocco</p>
+                    <h1 class="title font-black text-2xl sm:text-4xl md:text-5xl mb-3" id="title">MARRAKECH MERZOUGA</h1>
+                    <p class="description text-xs sm:text-sm text-gray-300 mb-5 leading-relaxed" id="description">
+                        استكشف جمال الصحراء والكثبان الرملية الساحرة واستمتع بتجربة فريدة تحت النجوم.
+                    </p>
+                    <button onclick="openCurrentVideo()" id="playVideoBtn" class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-amberGold text-black font-bold text-xs hover:bg-amber-400 transition shadow-lg flex items-center gap-2 mx-auto sm:mx-0">
+                        <i class="fa-solid fa-play"></i> <span data-i18n="watchVideoBtn">شاهد الفيديو الخاص بهذا العمل</span>
+                    </button>
+                </div>
+
+                <div class="gallery-row">
+                    <div class="gallery-nav-btn" onclick="scrollGallery(-1)"><i class="fa-solid fa-chevron-right"></i></div>
+
+                    <div class="cards-container" id="cardsContainer">
+                        <div class="card-item active" onclick="changeSlide(this, 'https://picsum.photos/id/1018/1920/1080', 'galleryTitle1', 'gallerySub1', 'galleryDesc1', 'https://www.w3schools.com/html/mov_bbb.mp4', '1')">
+                            <img src="https://picsum.photos/id/1018/300/400" alt="Merzouga">
+                            <div class="card-info"><span data-i18n="gallerySub1">Merzouga</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1015/1920/1080', 'galleryTitle2', 'gallerySub2', 'galleryDesc2', 'https://www.w3schools.com/html/movie.mp4', '2')">
+                            <img src="https://picsum.photos/id/1015/300/400" alt="Yosemite">
+                            <div class="card-info"><span data-i18n="gallerySub2">Yosemite</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1016/1920/1080', 'galleryTitle3', 'gallerySub3', 'galleryDesc3', 'https://www.w3schools.com/html/mov_bbb.mp4', '3')">
+                            <img src="https://picsum.photos/id/1016/300/400" alt="Beach">
+                            <div class="card-info"><span data-i18n="gallerySub3">Cox Lances</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1021/1920/1080', 'galleryTitle4', 'gallerySub4', 'galleryDesc4', 'https://www.w3schools.com/html/movie.mp4', '4')">
+                            <img src="https://picsum.photos/id/1021/300/400" alt="Santorini">
+                            <div class="card-info"><span data-i18n="gallerySub4">Santorini</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1024/1920/1080', 'galleryTitle5', 'gallerySub5', 'galleryDesc5', 'https://www.w3schools.com/html/mov_bbb.mp4', '5')">
+                            <img src="https://picsum.photos/id/1024/300/400" alt="Dubai">
+                            <div class="card-info"><span data-i18n="gallerySub5">Dubai</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1031/1920/1080', 'galleryTitle6', 'gallerySub6', 'galleryDesc6', 'https://www.w3schools.com/html/movie.mp4', '6')">
+                            <img src="https://picsum.photos/id/1031/300/400" alt="Swiss Alps">
+                            <div class="card-info"><span data-i18n="gallerySub6">Swiss Alps</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1035/1920/1080', 'galleryTitle7', 'gallerySub7', 'galleryDesc7', 'https://www.w3schools.com/html/mov_bbb.mp4', '7')">
+                            <img src="https://picsum.photos/id/1035/300/400" alt="Tokyo">
+                            <div class="card-info"><span data-i18n="gallerySub7">Tokyo</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1040/1920/1080', 'galleryTitle8', 'gallerySub8', 'galleryDesc8', 'https://www.w3schools.com/html/movie.mp4', '8')">
+                            <img src="https://picsum.photos/id/1040/300/400" alt="Amazon">
+                            <div class="card-info"><span data-i18n="gallerySub8">Amazon</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1043/1920/1080', 'galleryTitle9', 'gallerySub9', 'galleryDesc9', 'https://www.w3schools.com/html/mov_bbb.mp4', '9')">
+                            <img src="https://picsum.photos/id/1043/300/400" alt="Iceland">
+                            <div class="card-info"><span data-i18n="gallerySub9">Iceland</span></div>
+                        </div>
+
+                        <div class="card-item" onclick="changeSlide(this, 'https://picsum.photos/id/1050/1920/1080', 'galleryTitle10', 'gallerySub10', 'galleryDesc10', 'https://www.w3schools.com/html/movie.mp4', '10')">
+                            <img src="https://picsum.photos/id/1050/300/400" alt="Red Sea">
+                            <div class="card-info"><span data-i18n="gallerySub10">Red Sea</span></div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-nav-btn" onclick="scrollGallery(1)"><i class="fa-solid fa-chevron-left"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- الصفحة 4: تواصل معي -->
+        <section class="page-slide bg-panelDark">
+            <div class="max-w-3xl mx-auto px-6 text-center space-y-6 w-full">
+                <span class="px-4 py-1.5 rounded-full glass-panel text-amberGold text-xs font-mono uppercase border border-amberGold/30" data-i18n="contactBadge">ابدأ مشروعك</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black" data-i18n="contactTitle">جاهز لرفع مستوى قناتك؟</h2>
+                <a href="mailto:111@gmail.com" class="inline-block bg-amberGold text-black px-6 py-3 rounded-full text-xs font-bold transition shadow-lg">111@gmail.com</a>
+                <div class="pt-8 text-xs text-gray-500 font-mono" data-i18n="rights">جميع الحقوق محفوظة © 2026 أَمْجَد.</div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- نافذة تشغيل الفيديو المنبثقة (Modal) -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-md p-4">
+        <div class="relative w-full max-w-4xl glass-panel rounded-3xl overflow-hidden shadow-2xl border border-amberGold/30">
+            <div class="flex items-center justify-between p-4 border-b border-white/10">
+                <span id="modalTitle" class="font-display font-bold text-sm text-amberGold" data-i18n="modalVideoTitle">فيديو العمل</span>
+                <button onclick="closeVideoModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-amberGold hover:text-black transition flex items-center justify-center text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="aspect-video relative bg-black">
+                <video id="modalVideo" src="" controls autoplay class="w-full h-full object-contain"></video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+        ar: {
+        pageTitle: "أَمْجَد // استوديو مونتاج اليوتيوب الاحترافي",
+        brandName: "أَمْجَد",
+        headerSubtitle: "YOUTUBE EDITOR",
+        navHome: "الرئيسية",
+        navFeatured: "العمل المميز",
+        navGallery: "المعرض",
+        navContact: "تواصل معي",
+        heroBadge: "مونتير ومخرج محتوى يوتيوب",
+        heroDesc: "أحول الفيديوهات الخام إلى إبداعات بصرية تخطف انتباه المشاهد وترفع معدل الاحتفاظ بالجمهور على قناتك.",
+        heroBtn: "استعرض أعمالي",
+        featuredSub: "العمل الأكثر إعجاباً بواسطة الزوار ⭐",
+        featuredTitle: "تحدي الـ 24 ساعة في الصحراء الكبرى",
+        contactBadge: "ابدأ مشروعك",
+        contactTitle: "جاهز لرفع مستوى قناتك؟",
+        watchVideoBtn: "شاهد الفيديو الخاص بهذا العمل",
+        modalVideoTitle: "فيديو العمل",
+        rights: "جميع الحقوق محفوظة © 2026 أَمْجَد.",
+        galleryTitle1: "MARRAKECH MERZOUGA",
+        gallerySub1: "Merzouga",
+        galleryDesc1: "استكشف جمال الصحراء والكثبان الرملية الساحرة واستمتع بتجربة فريدة تحت النجوم.",
+        galleryTitle2: "YOSEMITE PARK",
+        gallerySub2: "Yosemite",
+        galleryDesc2: "تمتع بالطبيعة الخلابة والجبال الشاهقة والشلالات الرائعة في منتزه يوسيميتي.",
+        galleryTitle3: "COX LANCES BEACH",
+        gallerySub3: "Cox Lances",
+        galleryDesc3: "شواطئ ساحرة ومناظر طبيعية تسحر العيون بين الجبال والوديان.",
+        galleryTitle4: "SANTORINI SUNSET",
+        gallerySub4: "Santorini",
+        galleryDesc4: "غروب أسطوري فوق البيوت البيضاء والقباب الزرقاء في جزيرة سانتوريني.",
+        galleryTitle5: "DUBAI SKYLINE",
+        gallerySub5: "Dubai",
+        galleryDesc5: "لقطات جوية ليلية لأفق دبي المتلألئ وناطحات السحاب الحديثة.",
+        galleryTitle6: "SWISS ALPS",
+        gallerySub6: "Swiss Alps",
+        galleryDesc6: "قمم جبال الألب المغطاة بالثلوج وسط سكون طبيعي خلاب.",
+        galleryTitle7: "TOKYO NIGHTS",
+        gallerySub7: "Tokyo",
+        galleryDesc7: "أضواء النيون وحيوية الشوارع في قلب مدينة طوكيو ليلاً.",
+        galleryTitle8: "AMAZON RAINFOREST",
+        gallerySub8: "Amazon",
+        galleryDesc8: "أعماق غابات الأمازون المطيرة وتنوعها الطبيعي المذهل.",
+        galleryTitle9: "NORTHERN LIGHTS",
+        gallerySub9: "Iceland",
+        galleryDesc9: "رقصة الشفق القطبي الخلابة في سماء آيسلندا الصافية.",
+        galleryTitle10: "RED SEA DIVE",
+        gallerySub10: "Red Sea",
+        galleryDesc10: "استكشاف الشعاب المرجانية والحياة البحرية في أعماق البحر الأحمر."
+        },
+        en: {
+        pageTitle: "AMJAD // Professional YouTube Editing Studio",
+        brandName: "AMJAD",
+        headerSubtitle: "YOUTUBE EDITOR",
+        navHome: "Home",
+        navFeatured: "Featured",
+        navGallery: "Gallery",
+        navContact: "Contact",
+        heroBadge: "YouTube Content Editor & Director",
+        heroDesc: "I transform raw footage into captivating visual masterpieces that boost audience retention on your channel.",
+        heroBtn: "Explore Work",
+        featuredSub: "Most Liked Video By Visitors ⭐",
+        featuredTitle: "24-Hour Sahara Desert Challenge",
+        contactBadge: "Start Your Project",
+        contactTitle: "Ready to Level Up Your Channel?",
+        watchVideoBtn: "Watch This Project's Video",
+        modalVideoTitle: "Project Video",
+        rights: "All Rights Reserved © 2026 AMJAD.",
+        galleryTitle1: "MARRAKECH MERZOUGA",
+        gallerySub1: "Merzouga",
+        galleryDesc1: "Explore the beauty of the desert and enchanting sand dunes under the stars.",
+        galleryTitle2: "YOSEMITE PARK",
+        gallerySub2: "Yosemite",
+        galleryDesc2: "Enjoy breathtaking nature, towering mountains, and stunning waterfalls in Yosemite.",
+        galleryTitle3: "COX LANCES BEACH",
+        gallerySub3: "Cox Lances",
+        galleryDesc3: "Charming beaches and breathtaking landscapes nestled between mountains and valleys.",
+        galleryTitle4: "SANTORINI SUNSET",
+        gallerySub4: "Santorini",
+        galleryDesc4: "A legendary sunset over the white houses and blue domes of Santorini island.",
+        galleryTitle5: "DUBAI SKYLINE",
+        gallerySub5: "Dubai",
+        galleryDesc5: "Nighttime aerial shots of Dubai's glittering skyline and modern skyscrapers.",
+        galleryTitle6: "SWISS ALPS",
+        gallerySub6: "Swiss Alps",
+        galleryDesc6: "Snow-capped Alpine peaks amid breathtaking natural stillness.",
+        galleryTitle7: "TOKYO NIGHTS",
+        gallerySub7: "Tokyo",
+        galleryDesc7: "Neon lights and street energy in the heart of Tokyo at night.",
+        galleryTitle8: "AMAZON RAINFOREST",
+        gallerySub8: "Amazon",
+        galleryDesc8: "The depths of the Amazon rainforest and its stunning natural diversity.",
+        galleryTitle9: "NORTHERN LIGHTS",
+        gallerySub9: "Iceland",
+        galleryDesc9: "The mesmerizing dance of the aurora borealis across Iceland's clear skies.",
+        galleryTitle10: "RED SEA DIVE",
+        gallerySub10: "Red Sea",
+        galleryDesc10: "Exploring coral reefs and marine life in the depths of the Red Sea."
+        }
+        };
+
+        let currentLang = localStorage.getItem('amgad_lang') || 'ar';
+        let currentTheme = localStorage.getItem('amgad_theme') || 'dark';
+        let activeVideoUrl = 'https://www.w3schools.com/html/mov_bbb.mp4';
+        let currentSlideKey = '1';
+
+        if (currentTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        document.getElementById('themeIcon').className = 'fa-solid fa-moon text-sm';
+        } else {
+        document.getElementById('themeIcon').className = 'fa-solid fa-sun text-sm';
+        }
+
+        function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        localStorage.setItem('amgad_theme', 'light');
+        document.getElementById('themeIcon').className = 'fa-solid fa-moon text-sm';
+        } else {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('amgad_theme', 'dark');
+        document.getElementById('themeIcon').className = 'fa-solid fa-sun text-sm';
+        }
+        }
+
+        function toggleLanguage() {
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        localStorage.setItem('amgad_lang', currentLang);
+        applyLanguage();
+        }
+
+        function applyLanguage() {
+        const html = document.getElementById('htmlRoot');
+        html.setAttribute('lang', currentLang);
+        html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+
+        document.getElementById('langText').textContent = currentLang === 'ar' ? 'EN' : 'AR';
+
+        const arrow = document.getElementById('heroBtnArrow');
+        if (arrow) {
+        arrow.className = currentLang === 'ar' ? 'fa-solid fa-arrow-left mr-2' : 'fa-solid fa-arrow-right ml-2';
+        }
+
+        document.getElementById('brandName').textContent = translations[currentLang].brandName;
+        document.getElementById('heroBrandName').textContent = translations[currentLang].brandName;
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang] && translations[currentLang][key]) {
+        el.textContent = translations[currentLang][key];
+        }
+        });
+
+        updateActiveGalleryText();
+        document.title = translations[currentLang].pageTitle;
+        }
+
+        function updateActiveGalleryText() {
+        document.getElementById('title').innerText = translations[currentLang]['galleryTitle' + currentSlideKey];
+        document.getElementById('subTitle').innerText = translations[currentLang]['gallerySub' + currentSlideKey];
+        document.getElementById('description').innerText = translations[currentLang]['galleryDesc' + currentSlideKey];
+        }
+
+        function goToPage(pageIndex) {
+        const container = document.getElementById('pagesContainer');
+        container.style.transform = `translateX(${pageIndex * -100}vw)`;
+
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, idx) => {
+        if (idx === pageIndex) {
+        dot.classList.add('active');
+        } else {
+        dot.classList.remove('active');
+        }
+        });
+        }
+
+        function changeSlide(cardElement, imageSrc, titleKey, subTitleKey, descKey, videoUrl, slideKey) {
+        currentSlideKey = slideKey || '1';
+        document.getElementById('bgImage').style.backgroundImage = `url('${imageSrc}')`;
+        updateActiveGalleryText();
+        activeVideoUrl = videoUrl;
+
+        const cards = document.querySelectorAll('.card-item');
+        cards.forEach(card => card.classList.remove('active'));
+        cardElement.classList.add('active');
+        }
+
+        function openCurrentVideo() {
+        const modal = document.getElementById('videoModal');
+        const videoElem = document.getElementById('modalVideo');
+        const titleElem = document.getElementById('modalTitle');
+        const currentTitle = document.getElementById('title').innerText;
+
+        titleElem.textContent = currentTitle;
+        videoElem.src = activeVideoUrl;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        videoElem.play();
+        }
+
+        function closeVideoModal() {
+        const modal = document.getElementById('videoModal');
+        const videoElem = document.getElementById('modalVideo');
+
+        videoElem.pause();
+        videoElem.src = '';
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        }
+
+        function scrollGallery(direction) {
+        const container = document.getElementById('cardsContainer');
+        if (!container) return;
+        const step = 300;
+        const dirFactor = (currentLang === 'en') ? 1 : -1;
+        container.scrollBy({ left: direction * step * dirFactor, behavior: 'smooth' });
+        }
+
+        function enableGalleryDragScroll() {
+        const el = document.getElementById('cardsContainer');
+        if (!el) return;
+        let isDown = false;
+        let startX = 0;
+        let startScroll = 0;
+        let moved = false;
+
+        el.addEventListener('mousedown', (e) => {
+        isDown = true;
+        moved = false;
+        el.classList.add('dragging');
+        startX = e.pageX;
+        startScroll = el.scrollLeft;
+        });
+
+        window.addEventListener('mouseup', () => {
+        isDown = false;
+        el.classList.remove('dragging');
+        });
+
+        el.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const delta = e.pageX - startX;
+        if (Math.abs(delta) > 5) moved = true;
+        el.scrollLeft = startScroll - delta;
+        });
+
+        el.addEventListener('click', (e) => {
+        if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+        }
+        }, true);
+
+        el.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+        }
+        }, { passive: false });
+        }
+
+        function createHeroParticles() {
+        const container = document.getElementById('heroParticles');
+        if (!container) return;
+        const count = 22;
+        for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'hero-particle';
+        const size = (Math.random() * 3 + 2).toFixed(1);
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = (Math.random() * 100) + '%';
+        p.style.animationDuration = (Math.random() * 8 + 9) + 's';
+        p.style.animationDelay = (Math.random() * 12) + 's';
+        container.appendChild(p);
+        }
+        }
+
+        document.getElementById('bgImage').style.backgroundImage = "url('https://picsum.photos/id/1018/1920/1080')";
+        createHeroParticles();
+        enableGalleryDragScroll();
+        applyLanguage();
+    </script>
+</body>
+</html>
