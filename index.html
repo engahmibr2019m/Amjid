@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark" id="htmlRoot">
+<html lang="en" dir="ltr" class="dark" id="htmlRoot">
 <head>
     <meta name="google-site-verification" content="-t34H-hovzyxQ5kb_Kf4NLULPH0oAJc2mN7WnyfCn50" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title id="pageTitle">أَمْجَد // استوديو مونتاج اليوتيوب الاحترافي</title>
+
+    <!-- SEO + مشاركة الروابط -->
+    <meta name="description" content="أمجد — مونتير يوتيوب محترف. مونتاج فيديوهات يرفع مشاهدين قناتك، أعمال مع يوتيوبرز، معرض أعمال، وتواصل مباشر عبر واتساب.">
+    <meta name="theme-color" content="#030305">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AMJAD // Professional YouTube Editing Studio">
+    <meta property="og:description" content="Professional YouTube video editing that boosts your channel's retention. Explore the portfolio and get in touch on WhatsApp.">
+    <meta property="og:image" content="0000.jpeg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,37 +24,88 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Cinzel:wght@600;800;900&family=Reem+Kufi:wght@600;700&family=Montserrat:wght@400;600;800&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Cinzel:wght@600;800;900&family=Reem+Kufi:wght@600;700&family=Montserrat:wght@400;600;800&family=Tajawal:wght@400;500;700;900&family=Lalezar&family=Viga&display=swap" rel="stylesheet">
 
     <script>
         if (window.tailwind) tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        void: '#030305',
-                        panelDark: '#090a0f',
-                        amberGold: '#e6a13b',
-                        youtubeRed: '#ff0000',
-                        cyanNeon: '#00f0ff'
-                    },
-                    fontFamily: {
-                        display: ['Cairo', 'sans-serif'],
-                        sans: ['Tajawal', 'sans-serif'],
-                        brandAr: ['"Reem Kufi"', 'sans-serif'],
-                        brandEn: ['"Cinzel"', 'serif']
-                    }
-                }
-            }
+        darkMode: 'class',
+        theme: {
+        extend: {
+        colors: {
+        void: '#030305',
+        panelDark: '#090a0f',
+        amberGold: '#e6a13b',
+        youtubeRed: '#ff0000',
+        cyanNeon: '#00f0ff'
+        },
+        fontFamily: {
+        display: ['Cairo', 'sans-serif'],
+        sans: ['Tajawal', 'sans-serif'],
+        brandAr: ['"Reem Kufi"', 'sans-serif'],
+        brandEn: ['"Cinzel"', 'serif'],
+        arabic: ['Lalezar', 'Tajawal', 'sans-serif'],
+        english: ['Viga', 'Montserrat', 'sans-serif']
+        }
+        }
+        }
         }
     </script>
 
     <style>
-        :root { --card-w: clamp(96px, 22vw, 150px); }
+        :root {
+            --card-w: clamp(96px, 22vw, 150px);
+        }
 
-        ::-webkit-scrollbar { width: 0px; height: 0px; }
+        ::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
 
-        html, body { height: 100%; }
+        html, body {
+            height: 100%;
+        }
+
+        /* ============ الخطوط الجديدة: Lalezar للعربي و Viga للإنجليزي ============ */
+        html[lang="ar"] body { font-family: 'Lalezar', 'Tajawal', sans-serif; }
+        html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4 { font-family: 'Lalezar', 'Cairo', sans-serif; font-weight: 400; }
+        html[lang="en"] body { font-family: 'Viga', 'Tajawal', sans-serif; }
+        html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4 { font-family: 'Viga', 'Cinzel', sans-serif; font-weight: 400; }
+
+        /* ============ علامة الفيديو المائية AMJAD ============ */
+        .video-watermark {
+            position: absolute;
+            top: 14px;
+            inset-inline-start: 12px;
+            z-index: 5;
+            font-family: 'Viga', sans-serif;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 13px;
+            letter-spacing: 3px;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+        }
+        .video-watermark i { color: #e6a13b; margin-inline-end: 5px; }
+
+        /* شارة العمل الرائج على الكارت */
+        .hot-badge {
+            position: absolute;
+            top: 6px;
+            inset-inline-end: 6px;
+            z-index: 3;
+            background: linear-gradient(135deg, #ff4d00, #e6a13b);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 2px 7px;
+            border-radius: 999px;
+            box-shadow: 0 2px 8px rgba(255, 77, 0, 0.55);
+            pointer-events: none;
+        }
+
+        /* ============ حماية الفيديوهات من التنزيل ============ */
+        video { -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none; }
 
         body {
             background-color: #030305;
@@ -60,9 +120,18 @@
         }
 
         /* ============ الوضع الفاتح ============ */
-        html.light body { background-color: #f1f5f9; color: #0f172a; }
-        html.light .bg-void { background-color: #f8fafc !important; }
-        html.light .bg-panelDark { background-color: #f1f5f9 !important; }
+        html.light body {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+
+        html.light .bg-void {
+            background-color: #f8fafc !important;
+        }
+
+        html.light .bg-panelDark {
+            background-color: #f1f5f9 !important;
+        }
 
         html.light .glass-panel {
             background: rgba(255, 255, 255, 0.9) !important;
@@ -76,13 +145,27 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
-        html.light h1, html.light h2, html.light h3, html.light h4, html.light p { color: #0f172a; }
-        html.light .text-gray-400, html.light .text-gray-300, html.light .text-gray-500 { color: #475569 !important; }
+        html.light h1, html.light h2, html.light h3, html.light h4, html.light p {
+            color: #0f172a;
+        }
+
+        html.light .text-gray-400, html.light .text-gray-300, html.light .text-gray-500 {
+            color: #475569 !important;
+        }
 
         /* الأقسام التي فوق خلفية غامقة تبقى نصوصها فاتحة في الوضع الفاتح */
-        html.light .on-dark h1, html.light .on-dark p { color: #f3f4f6; }
-        html.light .on-dark .text-gray-300 { color: #d1d5db !important; }
-        html.light .on-dark .text-amberGold { color: #e6a13b !important; }
+        html.light .on-dark h1, html.light .on-dark p {
+            color: #f3f4f6;
+        }
+
+        html.light .on-dark .text-gray-300 {
+            color: #d1d5db !important;
+        }
+
+        html.light .on-dark .text-amberGold {
+            color: #e6a13b !important;
+        }
+
         html.light .on-dark .glass-panel {
             background: rgba(12, 14, 20, 0.7) !important;
             border: 1px solid rgba(230, 161, 59, 0.3) !important;
@@ -95,76 +178,188 @@
             letter-spacing: 0 !important;
             text-transform: none !important;
         }
-        html[lang="ar"] .font-mono { font-family: 'Tajawal', sans-serif; }
+
+        html[lang="ar"] .font-mono {
+            font-family: 'Tajawal', sans-serif;
+        }
+
         html[lang="ar"] [data-i18n="headerSubtitle"] {
             font-family: ui-monospace, monospace;
             letter-spacing: 0.15em !important;
         }
-        html[lang="ar"] p, html[lang="ar"] .description { line-height: 1.9; }
-        html[lang="ar"] .nav-link { font-size: 13px; }
+
+        html[lang="ar"] p, html[lang="ar"] .description {
+            line-height: 1.9;
+        }
+
+        html[lang="ar"] .nav-link {
+            font-size: 13px;
+        }
         /* الحركات فوق/تحت الحروف كانت تُقص مع background-clip:text */
-        html[lang="ar"] .amgad-logo { line-height: 1.6; padding-block: 0.12em; }
+        html[lang="ar"] .amgad-logo {
+            line-height: 1.6;
+            padding-block: 0.12em;
+        }
 
         /* ============ الشريط العلوي ============ */
-        .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; }
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+        }
 
-        .nav-link { color: #9ca3af; transition: color .2s ease; }
-        .nav-link:hover, .nav-link.is-active { color: #e6a13b; }
-        html.light .nav-link { color: #475569; }
-        html.light .nav-link:hover, html.light .nav-link.is-active { color: #b45309; }
+        .nav-link {
+            color: #9ca3af;
+            transition: color .2s ease;
+        }
+
+            .nav-link:hover, .nav-link.is-active {
+                color: #e6a13b;
+            }
+
+        html.light .nav-link {
+            color: #475569;
+        }
+
+            html.light .nav-link:hover, html.light .nav-link.is-active {
+                color: #b45309;
+            }
 
         /* ============ خلفية الصفحة الأولى ============ */
         .hero-gradient-bg {
-            position: absolute; inset: 0; z-index: 0;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
             background: linear-gradient(120deg, #030305, #1a1206, #05070a, #030305);
             background-size: 300% 300%;
             animation: gradientShift 14s ease infinite;
         }
+
         html.light .hero-gradient-bg {
             background: linear-gradient(120deg, #f8fafc, #fde9c8, #eef2f7, #f8fafc);
             background-size: 300% 300%;
         }
+
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
-        .hero-video-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-        .hero-video-bg video {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: brightness(0.45) contrast(1.1);
-            animation: kenburns 22s ease-in-out infinite alternate;
+        /* ============ خلفية صورة (صفحة العمل المميز + تواصل معي) ============ */
+        .page-photo-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('0000.jpeg') center / cover no-repeat;
         }
+
+        .page-photo-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(to bottom, rgba(3,3,5,0.72), rgba(3,3,5,0.88));
+        }
+
+        html.light .page-photo-overlay {
+            background: linear-gradient(to bottom, rgba(248,250,252,0.62), rgba(241,245,249,0.8));
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+
+        /* في وضع النهار: إشراقة وألوان أوضح لصورة الخلفية */
+        html.light .page-photo-bg {
+            filter: brightness(1.1) saturate(1.08);
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+            .hero-video-bg video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: brightness(0.45) contrast(1.1);
+                animation: kenburns 22s ease-in-out infinite alternate;
+            }
+
         @keyframes kenburns {
-            0% { transform: scale(1) translate(0, 0); }
-            100% { transform: scale(1.18) translate(-1.5%, -1.5%); }
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.18) translate(-1.5%, -1.5%);
+            }
         }
 
         .hero-video-overlay {
-            position: absolute; inset: 0; z-index: 1;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
             background: linear-gradient(to bottom, rgba(3,3,5,0.7), rgba(3,3,5,0.85));
         }
 
-        .hero-particles { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
-        .hero-particle {
-            position: absolute; bottom: -10px; border-radius: 50%;
-            background: #e6a13b; box-shadow: 0 0 8px 2px rgba(230,161,59,0.55);
-            opacity: 0;
-            animation-name: floatUp; animation-timing-function: linear; animation-iteration-count: infinite;
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            overflow: hidden;
+            pointer-events: none;
         }
+
+        .hero-particle {
+            position: absolute;
+            bottom: -10px;
+            border-radius: 50%;
+            background: #e6a13b;
+            box-shadow: 0 0 8px 2px rgba(230,161,59,0.55);
+            opacity: 0;
+            animation-name: floatUp;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
         @keyframes floatUp {
-            0% { transform: translateY(0) scale(0.6); opacity: 0; }
-            12% { opacity: 0.85; }
-            88% { opacity: 0.35; }
-            100% { transform: translateY(-100vh) scale(1.1); opacity: 0; }
+            0% {
+                transform: translateY(0) scale(0.6);
+                opacity: 0;
+            }
+
+            12% {
+                opacity: 0.85;
+            }
+
+            88% {
+                opacity: 0.35;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.1);
+                opacity: 0;
+            }
         }
 
         /* ============ الصفحات ============ */
         /* الحاوية مثبّتة من الشمال صراحةً (مش معتمدة على اتجاه الصفحة) عشان ما تتمددش ناحية السالب في RTL */
         .pages-container {
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             direction: ltr;
             display: flex;
             width: 400vw;
@@ -174,9 +369,17 @@
             transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
         /* في العربية الصفحة الأولى تبقى أقصى اليمين، والتالية ناحية الشمال */
-        html[dir="rtl"] .pages-container { flex-direction: row-reverse; }
-        html[dir="rtl"] .page-slide { direction: rtl; }
-        html[dir="ltr"] .page-slide { direction: ltr; }
+        html[dir="rtl"] .pages-container {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .page-slide {
+            direction: rtl;
+        }
+
+        html[dir="ltr"] .page-slide {
+            direction: ltr;
+        }
 
         .page-slide {
             width: 100vw;
@@ -208,6 +411,7 @@
             text-shadow: 0 0 30px rgba(230, 161, 59, 0.35);
             letter-spacing: 1px;
         }
+
         html.light .amgad-logo {
             background: linear-gradient(135deg, #0f172a 20%, #d97706 80%);
             -webkit-background-clip: text;
@@ -215,8 +419,17 @@
             -webkit-text-fill-color: transparent;
             text-shadow: none;
         }
-        html[lang="ar"] .amgad-logo { font-family: 'Reem Kufi', sans-serif; font-weight: 700; }
-        html[lang="en"] .amgad-logo { font-family: 'Cinzel', serif; font-weight: 900; letter-spacing: 2px; }
+
+        html[lang="ar"] .amgad-logo {
+            font-family: 'Lalezar', sans-serif;
+            font-weight: 400;
+        }
+
+        html[lang="en"] .amgad-logo {
+            font-family: 'Viga', sans-serif;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
 
         /* ============ نقاط التنقل (شاشات كبيرة) ============ */
         .nav-dots {
@@ -229,170 +442,370 @@
             flex-direction: column;
             gap: 10px;
         }
-        @media (min-width: 768px) { .nav-dots { display: flex; } }
+
+        @media (min-width: 768px) {
+            .nav-dots {
+                display: flex;
+            }
+        }
 
         .dot {
-            width: 8px; height: 8px; border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
             background: rgba(150, 150, 150, 0.4);
-            cursor: pointer; transition: all 0.3s ease; padding: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
         }
-        .dot.is-active { background: #e6a13b; height: 22px; border-radius: 6px; box-shadow: 0 0 12px #e6a13b; }
+
+            .dot.is-active {
+                background: #e6a13b;
+                height: 22px;
+                border-radius: 6px;
+                box-shadow: 0 0 12px #e6a13b;
+            }
 
         /* ============ شريط التنقل السفلي (موبايل) ============ */
         .mobile-nav {
-            position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
-            display: flex; justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            display: flex;
+            justify-content: space-around;
             padding: 6px 6px;
             background: rgba(9, 10, 15, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
-        @media (min-width: 768px) { .mobile-nav { display: none; } }
-        html.light .mobile-nav { background: rgba(255,255,255,0.94); border-top-color: rgba(0,0,0,0.08); }
+
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        html.light .mobile-nav {
+            background: rgba(255,255,255,0.94);
+            border-top-color: rgba(0,0,0,0.08);
+        }
 
         .tab-link {
-            flex: 1; min-width: 0;
-            display: flex; flex-direction: column; align-items: center; gap: 3px;
-            padding: 4px 6px; font-size: 17px; color: #9ca3af;
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            padding: 4px 6px;
+            font-size: 17px;
+            color: #9ca3af;
             transition: color .2s ease;
         }
-        .tab-link small { font-size: 10px; font-weight: 700; line-height: 1.3; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .tab-link.is-active { color: #e6a13b; }
-        html.light .tab-link { color: #64748b; }
-        html.light .tab-link.is-active { color: #b45309; }
+
+            .tab-link small {
+                font-size: 10px;
+                font-weight: 700;
+                line-height: 1.3;
+                max-width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .tab-link.is-active {
+                color: #e6a13b;
+            }
+
+        html.light .tab-link {
+            color: #64748b;
+        }
+
+            html.light .tab-link.is-active {
+                color: #b45309;
+            }
 
         /* ============ صفحة المعرض ============ */
-        .page-slide.gallery-slide { padding: 0; overflow: hidden; align-items: stretch; }
+        .page-slide.gallery-slide {
+            padding: 0;
+            overflow: hidden;
+            align-items: stretch;
+        }
 
         .slider-page-container {
             position: relative;
-            width: 100%; height: 100%;
-            display: flex; flex-direction: column;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             padding-top: 80px;
         }
 
         .bg-image {
-            position: absolute; inset: 0;
-            background-size: cover; background-position: center;
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
             z-index: 1;
         }
 
         .overlay {
-            position: absolute; inset: 0; z-index: 2;
+            position: absolute;
+            inset: 0;
+            z-index: 2;
             /* النص على اليمين في العربية → الجهة الغامقة يمين */
             background: linear-gradient(to left, rgba(3,3,5,0.92) 40%, rgba(3,3,5,0.35) 100%);
         }
+
         html[dir="ltr"] .overlay {
             background: linear-gradient(to right, rgba(3,3,5,0.92) 40%, rgba(3,3,5,0.35) 100%);
         }
 
         .slider-content {
-            position: relative; z-index: 3;
-            flex: 1 1 0; min-height: 0;
-            display: flex; flex-direction: column;
-            overflow-y: auto; scrollbar-width: none;
+            position: relative;
+            z-index: 3;
+            flex: 1 1 0;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            scrollbar-width: none;
             max-width: 580px;
             margin-inline: clamp(20px, 6vw, 90px);
             padding-block: 12px;
             color: #fff;
         }
-        .slider-content > :first-child { margin-top: auto; }
-        .slider-content > :last-child { margin-bottom: auto; }
+
+            .slider-content > :first-child {
+                margin-top: auto;
+            }
+
+            .slider-content > :last-child {
+                margin-bottom: auto;
+            }
 
         .gallery-row {
-            position: relative; z-index: 3;
-            display: flex; align-items: center; gap: 10px;
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-inline: clamp(12px, 4vw, 40px);
             margin-bottom: clamp(10px, 3vh, 24px);
         }
 
         .cards-container {
-            display: flex; gap: 14px;
-            flex: 1; min-width: 0;
-            overflow-x: auto; overflow-y: hidden;
+            display: flex;
+            gap: 14px;
+            flex: 1;
+            min-width: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
             scroll-behavior: smooth;
             scroll-snap-type: x proximity;
             scrollbar-width: none;
             padding: 12px 4px 8px;
             cursor: grab;
-            user-select: none; -webkit-user-select: none;
+            user-select: none;
+            -webkit-user-select: none;
         }
-        .cards-container.dragging { cursor: grabbing; scroll-behavior: auto; scroll-snap-type: none; }
+
+            .cards-container.dragging {
+                cursor: grabbing;
+                scroll-behavior: auto;
+                scroll-snap-type: none;
+            }
 
         .gallery-nav-btn {
             flex-shrink: 0;
-            width: 38px; height: 38px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: rgba(12, 14, 20, 0.75);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(230, 161, 59, 0.35);
-            color: #e6a13b; cursor: pointer; transition: all 0.25s ease;
+            color: #e6a13b;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
-        .gallery-nav-btn:hover { background: #e6a13b; color: #030305; }
+
+            .gallery-nav-btn:hover {
+                background: #e6a13b;
+                color: #030305;
+            }
 
         .card-item {
             width: var(--card-w);
             aspect-ratio: 3 / 4;
             flex-shrink: 0;
-            border-radius: 12px; overflow: hidden; position: relative; cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
             border: 2px solid transparent;
             scroll-snap-align: start;
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 6px 15px rgba(0,0,0,0.4);
             outline: none;
         }
-        .card-item img { width: 100%; height: 100%; object-fit: cover; -webkit-user-drag: none; pointer-events: none; }
-        .card-item .card-info {
-            position: absolute; bottom: 0; left: 0; right: 0; padding: 8px;
-            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-            color: #fff;
-        }
-        .card-item .card-info span { display: block; font-size: 0.75rem; font-weight: bold; }
-        .card-item.active, .card-item:focus-visible {
-            transform: translateY(-8px); border-color: #e6a13b;
-            box-shadow: 0 10px 20px rgba(230,161,59,0.3);
-        }
+
+            .card-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                -webkit-user-drag: none;
+                pointer-events: none;
+            }
+
+            .card-item .card-info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 8px;
+                background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+                color: #fff;
+            }
+
+                .card-item .card-info span {
+                    display: block;
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                }
+
+            .card-item.active, .card-item:focus-visible {
+                transform: translateY(-8px);
+                border-color: #e6a13b;
+                box-shadow: 0 10px 20px rgba(230,161,59,0.3);
+            }
+
         @media (hover: hover) {
-            .card-item:hover { transform: translateY(-8px); border-color: #e6a13b; box-shadow: 0 10px 20px rgba(230,161,59,0.3); }
+            .card-item:hover {
+                transform: translateY(-8px);
+                border-color: #e6a13b;
+                box-shadow: 0 10px 20px rgba(230,161,59,0.3);
+            }
         }
 
         /* ============ الصفحة المميزة + النافذة المنبثقة ============ */
-        .featured-wrap { width: min(56rem, calc(100% - 32px)); margin-inline: auto; }
-        .modal-box { width: min(56rem, 100%); }
+        .featured-wrap {
+            width: min(56rem, calc(100% - 32px));
+            margin-inline: auto;
+        }
+
+        .modal-box {
+            width: min(56rem, 100%);
+        }
+
         @supports (height: 100dvh) {
-            .featured-wrap { width: min(56rem, calc(100% - 32px), max(320px, calc((100dvh - 250px) * 16 / 9))); }
-            .modal-box { width: min(56rem, 100%, calc((100dvh - 120px) * 16 / 9)); }
+            .featured-wrap {
+                width: min(56rem, calc(100% - 32px), max(320px, calc((100dvh - 250px) * 16 / 9)));
+            }
+
+            .modal-box {
+                width: min(56rem, 100%, calc((100dvh - 120px) * 16 / 9));
+            }
         }
 
         /* ============ الموبايل ============ */
         @media (max-width: 767px) {
-            .page-slide { padding: 72px 0 76px; }
-            .slider-page-container { padding-top: 72px; padding-bottom: 68px; }
-            .gallery-nav-btn { display: none; }
+            .page-slide {
+                padding: 72px 0 76px;
+            }
+
+            .slider-page-container {
+                padding-top: 72px;
+                padding-bottom: 68px;
+            }
+
+            .gallery-nav-btn {
+                display: none;
+            }
+
             .overlay, html[dir="ltr"] .overlay {
                 background: linear-gradient(to top, rgba(3,3,5,0.94) 30%, rgba(3,3,5,0.55) 100%);
             }
-            .slider-content { margin-inline: 16px; max-width: none; align-items: center; text-align: center; }
-            .gallery-row { margin-bottom: 6px; }
+
+            .slider-content {
+                margin-inline: 16px;
+                max-width: none;
+                align-items: center;
+                text-align: center;
+            }
+
+            .gallery-row {
+                margin-bottom: 6px;
+            }
         }
 
         /* شاشات قصيرة (موبايل بالعرض) */
         @media (max-height: 560px) {
-            :root { --card-w: 80px; }
-            .page-slide { padding-top: 64px; padding-bottom: 20px; }
-            .slider-page-container { padding-top: 64px; }
-            #heroBrandName { font-size: 3rem; }
+            :root {
+                --card-w: 80px;
+            }
+
+            .page-slide {
+                padding-top: 64px;
+                padding-bottom: 20px;
+            }
+
+            .slider-page-container {
+                padding-top: 64px;
+            }
+
+            #heroBrandName {
+                font-size: 3rem;
+            }
         }
+
         @media (max-height: 560px) and (max-width: 767px) {
-            .page-slide { padding-bottom: 68px; }
-            .slider-page-container { padding-bottom: 60px; }
+            .page-slide {
+                padding-bottom: 68px;
+            }
+
+            .slider-page-container {
+                padding-bottom: 60px;
+            }
+        }
+
+        /* ============ شاشات صغيرة جداً + أجهزة بحواف مقطوعة ============ */
+        @media (max-width: 380px) {
+            :root {
+                --card-w: 82px;
+            }
+
+            #heroBrandName {
+                font-size: 3.4rem;
+            }
+
+            .card-item .card-info span {
+                font-size: 0.68rem;
+            }
+        }
+
+        .mobile-nav {
+            padding-bottom: calc(6px + env(safe-area-inset-bottom));
+        }
+
+        .nav-dots {
+            inset-inline-end: calc(18px + env(safe-area-inset-right));
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .hero-gradient-bg, .hero-video-bg video, .hero-particle { animation: none; }
-            .pages-container { transition-duration: 0.01ms; }
+            .hero-gradient-bg, .hero-video-bg video, .hero-particle {
+                animation: none;
+            }
+
+            .pages-container {
+                transition-duration: 0.01ms;
+            }
         }
     </style>
 </head>
@@ -403,10 +816,10 @@
         <div class="max-w-7xl mx-auto px-3 sm:px-8 flex items-center justify-between gap-2">
             <a href="#" onclick="goToPage(0); return false;" class="flex items-center gap-2 sm:gap-3 group min-w-0">
                 <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden border border-amberGold/30 shadow-md shrink-0">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="صورة أمجد" class="w-full h-full object-cover">
+                    <img src="00.jpg" alt="صورة أمجد" class="w-full h-full object-cover">
                 </div>
                 <div class="min-w-0">
-                    <span class="font-black text-lg sm:text-xl amgad-logo block leading-none" id="brandName">أَمْجَد</span>
+                    <span class="font-black text-lg sm:text-xl amgad-logo block leading-none" id="brandName">Amjad</span>
                     <span class="text-[8px] sm:text-[9px] font-mono tracking-widest text-gray-400 block" data-i18n="headerSubtitle">YOUTUBE EDITOR</span>
                 </div>
             </a>
@@ -430,7 +843,7 @@
                 </button>
 
                 <a href="https://wa.me/201228032666" target="_blank" rel="noopener" aria-label="WhatsApp" class="bg-amberGold hover:bg-amber-400 text-black w-9 h-9 sm:w-auto sm:h-auto justify-center px-0 sm:px-4 sm:py-2 rounded-full text-xs font-bold transition-all shadow-lg shadow-amberGold/10 flex items-center gap-1">
-                    <i class="fa-brands fa-whatsapp text-base sm:text-sm"></i> <span dir="ltr" class="hidden sm:inline">01228032666</span>
+                    <i class="fa-brands fa-whatsapp text-base sm:text-sm"></i> <span dir="ltr" class="hidden sm:inline">DM</span>
                 </a>
             </div>
         </div>
@@ -485,14 +898,17 @@
 
         <!-- الصفحة 2: العمل الأبرز -->
         <section class="page-slide bg-panelDark">
-            <div class="featured-wrap">
+            <div class="page-photo-bg"></div>
+            <div class="page-photo-overlay"></div>
+            <div class="featured-wrap relative z-10">
                 <div class="mb-5 text-center sm:text-start">
                     <span class="text-xs font-mono text-amberGold uppercase tracking-widest block mb-1" data-i18n="featuredSub">العمل الأكثر إعجاباً بواسطة الزوار ⭐</span>
-                    <h2 class="font-display text-xl sm:text-3xl md:text-4xl font-black" data-i18n="featuredTitle">تحدي الـ 24 ساعة في الصحراء الكبرى</h2>
+                    <h2 class="font-display text-xl sm:text-3xl md:text-4xl font-black" id="featuredTitleEl"></h2>
                 </div>
                 <div class="glass-panel p-2 sm:p-3 rounded-2xl sm:rounded-3xl border border-amberGold/30 shadow-2xl relative overflow-hidden">
                     <div class="aspect-video relative rounded-xl sm:rounded-2xl overflow-hidden bg-black">
-                        <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls playsinline preload="metadata" class="w-full h-full object-cover"></video>
+                        <video src="Video/6V.mp4" onerror="this.onerror=null;this.src='https://www.w3schools.com/html/mov_bbb.mp4'" poster="Picture/6P.png" controls playsinline preload="metadata" controlslist="nodownload" disablepictureinpicture oncontextmenu="return false" class="w-full h-full object-contain"></video>
+                        <span class="video-watermark"><i class="fa-solid fa-scissors"></i>AMJAD</span>
                     </div>
                 </div>
             </div>
@@ -505,7 +921,6 @@
                 <div class="overlay"></div>
 
                 <div class="slider-content on-dark">
-                    <p class="text-amberGold font-mono text-xs mb-2 tracking-widest uppercase" id="subTitle"></p>
                     <h1 class="font-black text-2xl sm:text-4xl md:text-5xl mb-3" id="title"></h1>
                     <p class="text-xs sm:text-sm md:text-base text-gray-300 mb-5 leading-relaxed description" id="description"></p>
                     <button onclick="openCurrentVideo()" id="playVideoBtn" class="self-center sm:self-start px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-amberGold text-black font-bold text-xs hover:bg-amber-400 transition shadow-lg flex items-center gap-2">
@@ -523,10 +938,19 @@
 
         <!-- الصفحة 4: تواصل معي -->
         <section class="page-slide bg-panelDark">
-            <div class="max-w-3xl mx-auto px-5 sm:px-6 text-center space-y-5 sm:space-y-6 w-full">
+            <div class="page-photo-bg"></div>
+            <div class="page-photo-overlay"></div>
+            <div class="max-w-3xl mx-auto px-5 sm:px-6 text-center space-y-5 sm:space-y-6 w-full relative z-10">
                 <span class="inline-block px-4 py-1.5 rounded-full glass-panel text-amberGold text-xs font-mono uppercase border border-amberGold/30" data-i18n="contactBadge">ابدأ مشروعك</span>
                 <h2 class="font-display text-3xl sm:text-5xl font-black" data-i18n="contactTitle">جاهز لرفع مستوى قناتك؟</h2>
-                <a href="mailto:111@gmail.com" class="inline-block bg-amberGold text-black px-6 py-3 rounded-full text-xs font-bold transition shadow-lg break-all">111@gmail.com</a>
+                <div class="flex flex-col items-center gap-3 sm:gap-4">
+                    <!--
+     <a href="mailto:ahmibr2019@gmail.com" class="inline-flex items-center justify-center bg-amberGold text-black px-6 py-3 rounded-full text-xs font-bold transition shadow-lg break-all">111@gmail.com</a>
+    -->
+                    <a href="https://wa.me/201228032666" target="_blank" rel="noopener" aria-label="WhatsApp" class="inline-flex items-center gap-2 bg-amberGold hover:bg-amber-400 text-black px-7 py-3.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-amberGold/30 hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> <span dir="ltr">01228032666</span>
+                    </a>
+                </div>
                 <div class="pt-6 sm:pt-8 text-xs text-gray-500 font-mono" data-i18n="rights">جميع الحقوق محفوظة © 2026 أَمْجَد.</div>
             </div>
         </section>
@@ -543,138 +967,173 @@
                 </button>
             </div>
             <div class="aspect-video relative bg-black">
-                <video id="modalVideo" src="" controls playsinline class="w-full h-full object-contain"></video>
+                <video id="modalVideo" src="" controls playsinline controlslist="nodownload" disablepictureinpicture oncontextmenu="return false" class="w-full h-full object-contain"></video>
+                <span class="video-watermark"><i class="fa-solid fa-scissors"></i>AMJAD</span>
             </div>
         </div>
     </div>
 
     <script>
         const translations = {
-            ar: {
-                pageTitle: "أَمْجَد // استوديو مونتاج اليوتيوب الاحترافي",
-                brandName: "أَمْجَد",
-                headerSubtitle: "YOUTUBE EDITOR",
-                navHome: "الرئيسية",
-                navFeatured: "العمل المميز",
-                navGallery: "المعرض",
-                navContact: "تواصل معي",
-                themeTitle: "تبديل الوضع",
-                langTitle: "تغيير اللغة",
-                prev: "السابق",
-                next: "التالي",
-                heroBadge: "مونتير ومخرج محتوى يوتيوب",
-                heroDesc: "أحول الفيديوهات الخام إلى إبداعات بصرية تخطف انتباه المشاهد وترفع معدل الاحتفاظ بالجمهور على قناتك.",
-                heroBtn: "استعرض أعمالي",
-                featuredSub: "العمل الأكثر إعجاباً بواسطة الزوار ⭐",
-                featuredTitle: "تحدي الـ 24 ساعة في الصحراء الكبرى",
-                contactBadge: "ابدأ مشروعك",
-                contactTitle: "جاهز لرفع مستوى قناتك؟",
-                watchVideoBtn: "شاهد الفيديو الخاص بهذا العمل",
-                modalVideoTitle: "فيديو العمل",
-                rights: "جميع الحقوق محفوظة © 2026 أَمْجَد.",
-                galleryTitle1: "صحراء مرزوقة",
-                gallerySub1: "مرزوقة",
-                galleryDesc1: "استكشف جمال الصحراء والكثبان الرملية الساحرة واستمتع بتجربة فريدة تحت النجوم.",
-                galleryTitle2: "منتزه يوسيميتي",
-                gallerySub2: "يوسيميتي",
-                galleryDesc2: "تمتع بالطبيعة الخلابة والجبال الشاهقة والشلالات الرائعة في منتزه يوسيميتي.",
-                galleryTitle3: "شاطئ كوكس لانس",
-                gallerySub3: "كوكس لانس",
-                galleryDesc3: "شواطئ ساحرة ومناظر طبيعية تسحر العيون بين الجبال والوديان.",
-                galleryTitle4: "غروب سانتوريني",
-                gallerySub4: "سانتوريني",
-                galleryDesc4: "غروب أسطوري فوق البيوت البيضاء والقباب الزرقاء في جزيرة سانتوريني.",
-                galleryTitle5: "أفق دبي",
-                gallerySub5: "دبي",
-                galleryDesc5: "لقطات جوية ليلية لأفق دبي المتلألئ وناطحات السحاب الحديثة.",
-                galleryTitle6: "جبال الألب السويسرية",
-                gallerySub6: "جبال الألب",
-                galleryDesc6: "قمم جبال الألب المغطاة بالثلوج وسط سكون طبيعي خلاب.",
-                galleryTitle7: "ليالي طوكيو",
-                gallerySub7: "طوكيو",
-                galleryDesc7: "أضواء النيون وحيوية الشوارع في قلب مدينة طوكيو ليلاً.",
-                galleryTitle8: "غابات الأمازون",
-                gallerySub8: "الأمازون",
-                galleryDesc8: "أعماق غابات الأمازون المطيرة وتنوعها الطبيعي المذهل.",
-                galleryTitle9: "الشفق القطبي",
-                gallerySub9: "آيسلندا",
-                galleryDesc9: "رقصة الشفق القطبي الخلابة في سماء آيسلندا الصافية.",
-                galleryTitle10: "غوص البحر الأحمر",
-                gallerySub10: "البحر الأحمر",
-                galleryDesc10: "استكشاف الشعاب المرجانية والحياة البحرية في أعماق البحر الأحمر."
+        ar: {
+        pageTitle: "أمجد // استوديو مونتاج اليوتيوب الاحترافي",
+        brandName: "AMJAD",
+        headerSubtitle: "YOUTUBE EDITOR",
+        navHome: "الرئيسية",
+        navFeatured: "العمل المميز",
+        navGallery: "المعرض",
+        navContact: "تواصل معي",
+        themeTitle: "تبديل الوضع",
+        langTitle: "تغيير اللغة",
+        prev: "السابق",
+        next: "التالي",
+        heroBadge: "مونتير ومخرج محتوى يوتيوب",
+        heroDesc: "أحول الفيديوهات الخام إلى إبداعات بصرية تخطف انتباه المشاهد وترفع معدل الاحتفاظ بالجمهور على قناتك.",
+
+        heroBtn: "استعرض أعمالي",                featuredSub: "🔥 الفيديو الرائج الآن — الأكثر مشاهدة",
+                featuredTitle: "أحد أعمالي مع اليوتيوبر هيكا",
+
+
+
+
+
+        contactBadge: "ابدأ مشروعك",
+        contactTitle: "جاهز لرفع مستوى قناتك؟",
+        watchVideoBtn: "شاهد الفيديو الخاص بهذا العمل",
+        modalVideoTitle: "فيديو العمل",
+        rights: "جميع الحقوق محفوظة © 2026 أَمْجَد.",
+
+
+
+
+        galleryTitle1: "1",
+        gallerySub1: "1",
+        galleryDesc1: "أحد أعمالي مع كلاوس.",
+
+        galleryTitle2: "2",
+        gallerySub2: "2",
+         galleryDesc2: "أحد أعمالي مع عمر أبو الرب.",
+        
+        galleryTitle3: "3",
+        gallerySub3: "3",
+        galleryDesc3: "أحد أعمالي مع هيكا.",
+
+        galleryTitle4: "4",
+        gallerySub4: "4",
+       galleryDesc4: "أحد أعمالي السينمائية.",
+
+        galleryTitle5: "5",
+        gallerySub5: "5",
+     galleryDesc5: "أحد أعمالي مع عمر أبو الرب.",
+
+        galleryTitle6: "6",
+        gallerySub6: "6",
+        galleryDesc6: "أحد أعمالي مع هيكا.",
+
+        galleryTitle7: "7",
+        gallerySub7: "7",
+       galleryDesc7: "أحد أعمالي مع هيكا.",
+
+        galleryTitle8: "8",
+        gallerySub8: "8",
+        galleryDesc8: "أحد أعمالي مع حيدر جنداوي.",
+
+        galleryTitle9: "9",
+        gallerySub9: "9",
+       galleryDesc9: "أحد أعمالي مع عمر أبو الرب.",
+
+        galleryTitle10: "10",
+                gallerySub10: "10",
+                galleryDesc10: "أحد أعمالي مع عمر أبو الرب.",
+        
             },
-            en: {
-                pageTitle: "AMJAD // Professional YouTube Editing Studio",
-                brandName: "AMJAD",
-                headerSubtitle: "YOUTUBE EDITOR",
-                navHome: "Home",
-                navFeatured: "Featured",
-                navGallery: "Gallery",
-                navContact: "Contact",
-                themeTitle: "Toggle theme",
-                langTitle: "Switch language",
-                prev: "Previous",
-                next: "Next",
-                heroBadge: "YouTube Content Editor & Director",
-                heroDesc: "I transform raw footage into captivating visual masterpieces that boost audience retention on your channel.",
-                heroBtn: "Explore Work",
-                featuredSub: "Most Liked Video By Visitors ⭐",
-                featuredTitle: "24-Hour Sahara Desert Challenge",
-                contactBadge: "Start Your Project",
-                contactTitle: "Ready to Level Up Your Channel?",
-                watchVideoBtn: "Watch This Project's Video",
-                modalVideoTitle: "Project Video",
-                rights: "All Rights Reserved © 2026 AMJAD.",
-                galleryTitle1: "MARRAKECH MERZOUGA",
-                gallerySub1: "Merzouga",
-                galleryDesc1: "Explore the beauty of the desert and enchanting sand dunes under the stars.",
-                galleryTitle2: "YOSEMITE PARK",
-                gallerySub2: "Yosemite",
-                galleryDesc2: "Enjoy breathtaking nature, towering mountains, and stunning waterfalls in Yosemite.",
-                galleryTitle3: "COX LANCES BEACH",
-                gallerySub3: "Cox Lances",
-                galleryDesc3: "Charming beaches and breathtaking landscapes nestled between mountains and valleys.",
-                galleryTitle4: "SANTORINI SUNSET",
-                gallerySub4: "Santorini",
-                galleryDesc4: "A legendary sunset over the white houses and blue domes of Santorini island.",
-                galleryTitle5: "DUBAI SKYLINE",
-                gallerySub5: "Dubai",
-                galleryDesc5: "Nighttime aerial shots of Dubai's glittering skyline and modern skyscrapers.",
-                galleryTitle6: "SWISS ALPS",
-                gallerySub6: "Swiss Alps",
-                galleryDesc6: "Snow-capped Alpine peaks amid breathtaking natural stillness.",
-                galleryTitle7: "TOKYO NIGHTS",
-                gallerySub7: "Tokyo",
-                galleryDesc7: "Neon lights and street energy in the heart of Tokyo at night.",
-                galleryTitle8: "AMAZON RAINFOREST",
-                gallerySub8: "Amazon",
-                galleryDesc8: "The depths of the Amazon rainforest and its stunning natural diversity.",
-                galleryTitle9: "NORTHERN LIGHTS",
-                gallerySub9: "Iceland",
-                galleryDesc9: "The mesmerizing dance of the aurora borealis across Iceland's clear skies.",
-                galleryTitle10: "RED SEA DIVE",
-                gallerySub10: "Red Sea",
-                galleryDesc10: "Exploring coral reefs and marine life in the depths of the Red Sea."
+        en: {
+        pageTitle: "AMJAD // Professional YouTube Editing Studio",
+        brandName: "AMJAD",
+        headerSubtitle: "YOUTUBE EDITOR",
+        navHome: "Home",
+        navFeatured: "Featured",
+        navGallery: "Gallery",
+        navContact: "Contact",
+        themeTitle: "Toggle theme",
+        langTitle: "Switch language",
+        prev: "Previous",
+        next: "Next",
+        heroBadge: "YouTube Content Editor & Director",
+        heroDesc: "I transform raw footage into captivating visual masterpieces that boost audience retention on your channel.",
+        heroBtn: "Explore Work",                featuredSub: "🔥 Trending Video Now — Most Watched",
+                featuredTitle: "One of my projects with YouTuber Hika",
+
+
+
+        contactBadge: "Start Your Project",
+        contactTitle: "Ready to Level Up Your Channel?",
+        watchVideoBtn: "Watch This Project's Video",
+        modalVideoTitle: "Project Video",
+        rights: "All Rights Reserved © 2026 AMJAD.",
+
+
+     galleryTitle1: "1",
+gallerySub1: "1",
+galleryDesc1: "One of my projects with Klaus.",
+
+galleryTitle2: "2",
+gallerySub2: "2",
+galleryDesc2: "One of my projects with Omar Abu Al-Rub.",
+
+galleryTitle3: "3",
+gallerySub3: "3",
+galleryDesc3: "One of my projects with Heka.",
+
+galleryTitle4: "4",
+gallerySub4: "4",
+galleryDesc4: "One of my cinematic projects.",
+
+galleryTitle5: "5",
+gallerySub5: "5",
+galleryDesc5: "One of my projects with Omar Abu Al-Rub.",
+
+galleryTitle6: "6",
+gallerySub6: "6",
+galleryDesc6: "One of my projects with Heka.",
+
+galleryTitle7: "7",
+gallerySub7: "7",
+galleryDesc7: "One of my projects with Heka.",
+
+galleryTitle8: "8",
+gallerySub8: "8",
+galleryDesc8: "One of my projects with Haider Jindawi.",
+
+galleryTitle9: "9",
+gallerySub9: "9",
+galleryDesc9: "One of my projects with Omar Abu Al-Rub.",
+
+galleryTitle10: "10",
+gallerySub10: "10",
+galleryDesc10: "One of my projects with Omar Abu Al-Rub.",
             }
         };
 
-        // بيانات المعرض: رقم الصورة + رابط الفيديو (النصوص في translations)
+        // بيانات المعرض: كل عمل برقمه (صورته Picture/{n}P.png وفيديوه Video/{n}V.mp4)
+        const FALLBACK_IMGS = [1018, 1015, 1016, 1021, 1024, 1031, 1035, 1040, 1043, 1050];
         const MOV_A = 'https://www.w3schools.com/html/mov_bbb.mp4';
         const MOV_B = 'https://www.w3schools.com/html/movie.mp4';
-        const galleryItems = [
-            { img: 1018, video: MOV_A }, { img: 1015, video: MOV_B },
-            { img: 1016, video: MOV_A }, { img: 1021, video: MOV_B },
-            { img: 1024, video: MOV_A }, { img: 1031, video: MOV_B },
-            { img: 1035, video: MOV_A }, { img: 1040, video: MOV_B },
-            { img: 1043, video: MOV_A }, { img: 1050, video: MOV_B }
-        ];
+        const TRENDING = 6; // رقم الفيديو الرائج
+        const galleryItems = FALLBACK_IMGS.map((fallbackImg, i) => ({
+            n: i + 1,
+            img: 'Picture/' + (i + 1) + 'P.png',
+            fallback: 'https://picsum.photos/id/' + fallbackImg,
+            video: 'Video/' + (i + 1) + 'V.mp4',
+            fallbackVideo: (i % 2 === 0) ? MOV_A : MOV_B
+        }));
 
         const store = {
-            get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
-            set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+        get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+        set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
         };
 
-        let currentLang = store.get('amgad_lang') === 'en' ? 'en' : 'ar';
+        let currentLang = store.get('amgad_lang') === 'ar' ? 'ar' : 'en';
         let currentTheme = store.get('amgad_theme') || 'dark';
         let activeVideoUrl = galleryItems[0].video;
         let currentSlideKey = '1';
@@ -684,235 +1143,263 @@
 
         /* ---------- الوضع الليلي/النهاري ---------- */
         function applyTheme() {
-            const root = document.documentElement;
-            root.classList.toggle('light', currentTheme === 'light');
-            root.classList.toggle('dark', currentTheme !== 'light');
-            document.getElementById('themeIcon').className =
-                'fa-solid text-sm ' + (currentTheme === 'light' ? 'fa-moon' : 'fa-sun');
+        const root = document.documentElement;
+        root.classList.toggle('light', currentTheme === 'light');
+        root.classList.toggle('dark', currentTheme !== 'light');
+        document.getElementById('themeIcon').className =
+        'fa-solid text-sm ' + (currentTheme === 'light' ? 'fa-moon' : 'fa-sun');
         }
 
         function toggleTheme() {
-            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-            store.set('amgad_theme', currentTheme);
-            applyTheme();
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+        store.set('amgad_theme', currentTheme);
+        applyTheme();
         }
 
         /* ---------- اللغة ---------- */
         function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            store.set('amgad_lang', currentLang);
-            applyLanguage();
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        store.set('amgad_lang', currentLang);
+        applyLanguage();
         }
 
         function applyLanguage() {
-            const t = translations[currentLang];
-            const rtl = currentLang === 'ar';
-            const html = document.getElementById('htmlRoot');
-            html.setAttribute('lang', currentLang);
-            html.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+        const t = translations[currentLang];
+        const rtl = currentLang === 'ar';
+        const html = document.getElementById('htmlRoot');
+        html.setAttribute('lang', currentLang);
+        html.setAttribute('dir', rtl ? 'rtl' : 'ltr');
 
-            document.getElementById('langText').textContent = rtl ? 'EN' : 'AR';
-            document.getElementById('themeBtn').title = t.themeTitle;
-            document.getElementById('langBtn').title = t.langTitle;
-            document.getElementById('galleryPrev').setAttribute('aria-label', t.prev);
-            document.getElementById('galleryNext').setAttribute('aria-label', t.next);
+        document.getElementById('langText').textContent = rtl ? 'EN' : 'AR';
+        document.getElementById('themeBtn').title = t.themeTitle;
+        document.getElementById('langBtn').title = t.langTitle;
+        document.getElementById('galleryPrev').setAttribute('aria-label', t.prev);
+        document.getElementById('galleryNext').setAttribute('aria-label', t.next);
 
-            document.getElementById('heroBtnArrow').className =
-                'fa-solid ms-2 ' + (rtl ? 'fa-arrow-left' : 'fa-arrow-right');
-            // أسهم المعرض: "السابق" دايماً ناحية بداية الصف
-            document.getElementById('galleryPrevIcon').className =
-                'fa-solid ' + (rtl ? 'fa-chevron-right' : 'fa-chevron-left');
-            document.getElementById('galleryNextIcon').className =
-                'fa-solid ' + (rtl ? 'fa-chevron-left' : 'fa-chevron-right');
+        document.getElementById('heroBtnArrow').className =
+        'fa-solid ms-2 ' + (rtl ? 'fa-arrow-left' : 'fa-arrow-right');
+        // أسهم المعرض: "السابق" دايماً ناحية بداية الصف
+        document.getElementById('galleryPrevIcon').className =
+        'fa-solid ' + (rtl ? 'fa-chevron-right' : 'fa-chevron-left');
+        document.getElementById('galleryNextIcon').className =
+        'fa-solid ' + (rtl ? 'fa-chevron-left' : 'fa-chevron-right');
 
-            document.getElementById('brandName').textContent = t.brandName;
-            document.getElementById('heroBrandName').textContent = t.brandName;
-
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (t[key]) el.textContent = t[key];
+        document.getElementById('brandName').textContent = t.brandName;
+        document.getElementById('heroBrandName').textContent = t.brandName;            document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) el.textContent = t[key];
             });
+            document.getElementById('featuredTitleEl').textContent = t.featuredTitle;
 
-            updateActiveGalleryText();
-            document.title = t.pageTitle;
+        updateActiveGalleryText();
+        document.title = t.pageTitle;
 
-            // اتجاه الصفحات اتغير → نعيد ضبط الموضع فوراً بدون حركة
-            goToPage(currentPage, true);
+        // اتجاه الصفحات اتغير → نعيد ضبط الموضع فوراً بدون حركة
+        goToPage(currentPage, true);
         }
 
         function updateActiveGalleryText() {
-            const t = translations[currentLang];
-            document.getElementById('title').textContent = t['galleryTitle' + currentSlideKey];
-            document.getElementById('subTitle').textContent = t['gallerySub' + currentSlideKey];
-            document.getElementById('description').textContent = t['galleryDesc' + currentSlideKey];
-        }
+        const t = translations[currentLang];
+        document.getElementById('title').textContent = t['galleryTitle' + currentSlideKey];
+        document.getElementById('description').textContent = t['galleryDesc' + currentSlideKey];
+            }
 
         /* ---------- التنقل بين الصفحات ---------- */
         function goToPage(pageIndex, instant) {
-            const container = document.getElementById('pagesContainer');
-            currentPage = Math.max(0, Math.min(3, pageIndex));
+        const container = document.getElementById('pagesContainer');
+        currentPage = Math.max(0, Math.min(3, pageIndex));
 
-            if (instant) container.style.transition = 'none';
-            // في العربية (RTL) الصفحة الأولى أقصى اليمين (row-reverse)، فبنحسب الإزاحة من الآخر
-            const offset = isRTL() ? (3 - currentPage) : currentPage;
-            container.style.transform = `translateX(${-offset * 100}vw)`;
-            if (instant) { void container.offsetWidth; container.style.transition = ''; }
+        if (instant) container.style.transition = 'none';
+        // في العربية (RTL) الصفحة الأولى أقصى اليمين (row-reverse)، فبنحسب الإزاحة من الآخر
+        const offset = isRTL() ? (3 - currentPage) : currentPage;
+        container.style.transform = `translateX(${-offset * 100}vw)`;
+        if (instant) { void container.offsetWidth; container.style.transition = ''; }
 
-            document.querySelectorAll('[data-page]').forEach(el => {
-                el.classList.toggle('is-active', Number(el.dataset.page) === currentPage);
-            });
+        document.querySelectorAll('[data-page]').forEach(el => {
+        el.classList.toggle('is-active', Number(el.dataset.page) === currentPage);
+        });
         }
 
         /* ---------- المعرض ---------- */
-        function bgUrl(img) {
-            const size = window.innerWidth > 900 ? '1920/1080' : '1080/1350';
-            return `url('https://picsum.photos/id/${img}/${size}')`;
+        // خلفية المعرض: صورة العمل المحلية أولاً (Picture/{n}P.png) ولو مش موجودة صورة النت المؤقتة
+        function bgUrl(item) {
+        const size = window.innerWidth > 900 ? '1920/1080' : '1080/1350';
+        return `url('${item.img}'), url('${item.fallback}/${size}')`;
         }
 
         function renderGallery() {
-            const container = document.getElementById('cardsContainer');
-            galleryItems.forEach((item, i) => {
-                const key = String(i + 1);
-                const card = document.createElement('div');
-                card.className = 'card-item' + (i === 0 ? ' active' : '');
-                card.setAttribute('role', 'button');
-                card.tabIndex = 0;
-                card.innerHTML =
-                    `<img src="https://picsum.photos/id/${item.img}/300/400" alt="" loading="lazy" draggable="false">` +
-                    `<div class="card-info"><span data-i18n="gallerySub${key}"></span></div>`;
-                card.addEventListener('click', () => selectSlide(card, item, key));
-                card.addEventListener('keydown', e => {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectSlide(card, item, key); }
-                });
-                container.appendChild(card);
-            });
-            document.getElementById('bgImage').style.backgroundImage = bgUrl(galleryItems[0].img);
+        const container = document.getElementById('cardsContainer');
+        galleryItems.forEach((item, i) => {
+        const key = String(i + 1);
+        const card = document.createElement('div');
+        card.className = 'card-item' + (i === 0 ? ' active' : '');
+        card.setAttribute('role', 'button');
+        card.tabIndex = 0;
+        // صورة الكارت من ملفك المحلي (Picture/{n}P.png) ولو مش موجودة صورة النت المؤقتة
+        card.innerHTML =
+        `<img src="${item.img}" onerror="this.onerror=null;this.src='${item.fallback}/300/400'" alt="" loading="lazy" draggable="false">` +
+        (item.n === TRENDING ? `<span class="hot-badge">🔥 ${item.n}V</span>` : '') +
+        `<div class="card-info"><span data-i18n="gallerySub${key}"></span></div>`;
+        card.addEventListener('click', () => selectSlide(card, item, key));
+        card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectSlide(card, item, key); }
+        });
+        container.appendChild(card);
+        });
+        document.getElementById('bgImage').style.backgroundImage = bgUrl(galleryItems[0]);
         }
 
         function selectSlide(card, item, key) {
-            currentSlideKey = key;
-            activeVideoUrl = item.video;
-            document.getElementById('bgImage').style.backgroundImage = bgUrl(item.img);
-            updateActiveGalleryText();
+        currentSlideKey = key;
+        activeVideoUrl = item.video;
+        document.getElementById('bgImage').style.backgroundImage = bgUrl(item);
+        updateActiveGalleryText();
 
-            document.querySelectorAll('.card-item').forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
+        document.querySelectorAll('.card-item').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
 
-            // نوسّط الكارت داخل الصف فقط (بدون scrollIntoView عشان ما يحرّكش الصفحة كلها)
-            const container = document.getElementById('cardsContainer');
-            const c = container.getBoundingClientRect();
-            const r = card.getBoundingClientRect();
-            container.scrollBy({ left: (r.left + r.width / 2) - (c.left + c.width / 2), behavior: 'smooth' });
+        // نوسّط الكارت داخل الصف فقط (بدون scrollIntoView عشان ما يحرّكش الصفحة كلها)
+        const container = document.getElementById('cardsContainer');
+        const c = container.getBoundingClientRect();
+        const r = card.getBoundingClientRect();
+        container.scrollBy({ left: (r.left + r.width / 2) - (c.left + c.width / 2), behavior: 'smooth' });
         }
 
         function scrollGallery(direction) {
-            const container = document.getElementById('cardsContainer');
-            const step = Math.max(200, container.clientWidth * 0.7);
-            // في RTL الـ scrollLeft بيبقى سالب كل ما نتقدم
-            container.scrollBy({ left: direction * step * (isRTL() ? -1 : 1), behavior: 'smooth' });
+        const container = document.getElementById('cardsContainer');
+        const step = Math.max(200, container.clientWidth * 0.7);
+        // في RTL الـ scrollLeft بيبقى سالب كل ما نتقدم
+        container.scrollBy({ left: direction * step * (isRTL() ? -1 : 1), behavior: 'smooth' });
         }
 
         function enableGalleryDragScroll() {
-            const el = document.getElementById('cardsContainer');
-            let isDown = false, startX = 0, startScroll = 0, moved = false;
+        const el = document.getElementById('cardsContainer');
+        let isDown = false, startX = 0, startScroll = 0, moved = false;
 
-            el.addEventListener('mousedown', e => {
-                isDown = true; moved = false;
-                el.classList.add('dragging');
-                startX = e.pageX; startScroll = el.scrollLeft;
-            });
-            window.addEventListener('mouseup', () => { isDown = false; el.classList.remove('dragging'); });
-            window.addEventListener('mousemove', e => {
-                if (!isDown) return;
-                const delta = e.pageX - startX;
-                if (Math.abs(delta) > 5) moved = true;
-                el.scrollLeft = startScroll - delta;
-            });
-            // لو كان سحب فعلاً، نمنع الضغطة من اختيار الكارت
-            el.addEventListener('click', e => {
-                if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
-            }, true);
-            // عجلة الماوس العمودية تحرّك الصف أفقياً
-            el.addEventListener('wheel', e => {
-                if (el.scrollWidth <= el.clientWidth) return;
-                if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-                    e.preventDefault();
-                    el.scrollLeft += e.deltaY * (isRTL() ? -1 : 1);
-                }
-            }, { passive: false });
+        el.addEventListener('mousedown', e => {
+        isDown = true; moved = false;
+        el.classList.add('dragging');
+        startX = e.pageX; startScroll = el.scrollLeft;
+        });
+        window.addEventListener('mouseup', () => { isDown = false; el.classList.remove('dragging'); });
+        window.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        const delta = e.pageX - startX;
+        if (Math.abs(delta) > 5) moved = true;
+        el.scrollLeft = startScroll - delta;
+        });
+        // لو كان سحب فعلاً، نمنع الضغطة من اختيار الكارت
+        el.addEventListener('click', e => {
+        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+        }, true);
+        // عجلة الماوس العمودية تحرّك الصف أفقياً
+        el.addEventListener('wheel', e => {
+        if (el.scrollWidth <= el.clientWidth) return;
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY * (isRTL() ? -1 : 1);
+        }
+        }, { passive: false });
         }
 
         /* ---------- الفيديو المنبثق ---------- */
         function openCurrentVideo() {
-            const modal = document.getElementById('videoModal');
-            const videoElem = document.getElementById('modalVideo');
-            document.getElementById('modalTitle').textContent = document.getElementById('title').textContent;
-            videoElem.src = activeVideoUrl;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            const p = videoElem.play();
-            if (p && p.catch) p.catch(() => {});
+        const modal = document.getElementById('videoModal');
+        const videoElem = document.getElementById('modalVideo');
+        const item = galleryItems[currentSlideKey - 1];
+        document.getElementById('modalTitle').textContent = document.getElementById('title').textContent;
+        // فيديو العمل من ملفك المحلي (Video/{n}V.mp4) ولو مش موجود فيديو النت المؤقت
+        videoElem.onerror = () => {
+        videoElem.onerror = null;
+        videoElem.src = item.fallbackVideo;
+        const p = videoElem.play();
+        if (p && p.catch) p.catch(() => {});
+        };
+        videoElem.src = item.video;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        const p = videoElem.play();
+        if (p && p.catch) p.catch(() => {});
         }
 
         function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const videoElem = document.getElementById('modalVideo');
-            videoElem.pause();
-            videoElem.removeAttribute('src');
-            videoElem.load();
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
+        const modal = document.getElementById('videoModal');
+        const videoElem = document.getElementById('modalVideo');
+        videoElem.pause();
+        videoElem.removeAttribute('src');
+        videoElem.load();
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
         }
 
         const modalOpen = () => document.getElementById('videoModal').classList.contains('flex');
 
         /* ---------- جسيمات الخلفية ---------- */
         function createHeroParticles() {
-            const container = document.getElementById('heroParticles');
-            const count = window.innerWidth < 640 ? 10 : 22;
-            for (let i = 0; i < count; i++) {
-                const p = document.createElement('div');
-                p.className = 'hero-particle';
-                const size = (Math.random() * 3 + 2).toFixed(1);
-                p.style.width = size + 'px';
-                p.style.height = size + 'px';
-                p.style.left = (Math.random() * 100) + '%';
-                p.style.animationDuration = (Math.random() * 8 + 9) + 's';
-                p.style.animationDelay = (Math.random() * 12) + 's';
-                container.appendChild(p);
-            }
+        const container = document.getElementById('heroParticles');
+        const count = window.innerWidth < 640 ? 10 : 22;
+        for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'hero-particle';
+        const size = (Math.random() * 3 + 2).toFixed(1);
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = (Math.random() * 100) + '%';
+        p.style.animationDuration = (Math.random() * 8 + 9) + 's';
+        p.style.animationDelay = (Math.random() * 12) + 's';
+        container.appendChild(p);
+        }
         }
 
         /* ---------- السحب باللمس + الكيبورد للتنقل بين الصفحات ---------- */
         let touchX = 0, touchY = 0, touchOK = false;
         document.addEventListener('touchstart', e => {
-            touchOK = !e.target.closest('.cards-container, video, #videoModal');
-            if (!touchOK) return;
-            touchX = e.touches[0].clientX;
-            touchY = e.touches[0].clientY;
+        touchOK = !e.target.closest('.cards-container, video, #videoModal');
+        if (!touchOK) return;
+        touchX = e.touches[0].clientX;
+        touchY = e.touches[0].clientY;
         }, { passive: true });
 
         document.addEventListener('touchend', e => {
-            if (!touchOK) return;
-            const t = e.changedTouches[0];
-            const dx = t.clientX - touchX, dy = t.clientY - touchY;
-            if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-            const forward = isRTL() ? dx > 0 : dx < 0;
-            goToPage(currentPage + (forward ? 1 : -1));
+        if (!touchOK) return;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - touchX, dy = t.clientY - touchY;
+        if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+        const forward = isRTL() ? dx > 0 : dx < 0;
+        goToPage(currentPage + (forward ? 1 : -1));
         }, { passive: true });
 
         document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && modalOpen()) { closeVideoModal(); return; }
-            if (modalOpen() || e.target.closest('video')) return;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-                const toRight = e.key === 'ArrowRight';
-                // في RTL: اليسار = الصفحة التالية، في LTR: اليمين = التالية
-                const forward = isRTL() ? !toRight : toRight;
-                goToPage(currentPage + (forward ? 1 : -1));
-            }
+        if (e.key === 'Escape' && modalOpen()) { closeVideoModal(); return; }
+        if (modalOpen() || e.target.closest('video')) return;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        const toRight = e.key === 'ArrowRight';
+        // في RTL: اليسار = الصفحة التالية، في LTR: اليمين = التالية
+        const forward = isRTL() ? !toRight : toRight;
+        goToPage(currentPage + (forward ? 1 : -1));
+        }
         });
 
+        /* ---------- حماية الفيديوهات من التنزيل ---------- */
+        function protectVideos() {
+        // منع قائمة كليك يمين والسحب على أي فيديو
+        document.addEventListener('contextmenu', e => {
+        if (e.target.closest('video')) e.preventDefault();
+        });
+        document.addEventListener('dragstart', e => {
+        if (e.target.closest('video')) e.preventDefault();
+        });
+        // تطبيق الإعدادات على كل الفيديوهات الحالية والجديدة
+        const apply = () => document.querySelectorAll('video').forEach(v => {
+        v.setAttribute('controlslist', 'nodownload');
+        v.setAttribute('disablepictureinpicture', '');
+        });
+        apply();
+        document.querySelectorAll('video').forEach(v => v.addEventListener('loadedmetadata', apply));
+        }
+
         /* ---------- التشغيل ---------- */
+        protectVideos();
         applyTheme();
         renderGallery();
         createHeroParticles();
