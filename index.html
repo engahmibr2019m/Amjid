@@ -933,7 +933,7 @@ const MOV_B = 'https://www.w3schools.com/html/movie.mp4';
 const TRENDING = 6;
 const galleryItems = FALLBACK_IMGS.map((fb, i) => ({
           n: i + 1,
-          img: 'Picture/' + (i + 1) + 'P.png',
+          img:  (i + 1) + 'P.png',
           fallback: 'https://picsum.photos/id/' + fb,
           video: (VIDEO_LINKS[i] || 'Video/' + (i + 1) + 'V.mp4').trim(),
           fallbackVideo: (i % 2 === 0) ? MOV_A : MOV_B
